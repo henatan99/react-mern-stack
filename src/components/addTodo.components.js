@@ -37,7 +37,18 @@ export default class AddTodoComponent extends Component {
     render() {
         return (
             <div>
-                
+                <form onSubmit={this.onSubmit}>
+                    <div className="form-group">
+                        <label className="mb-2"><strong>Create Task</strong></label>
+                        <input type="text" className="form-control" value={this.state.task} onChange={this.onTaskChange} />
+
+                    </div>
+
+                    <div className="d-grid mt-3">
+                        <input type="submit" value="+ Create" className="btn btn-primary" />
+                        
+                    </div>
+                </form>
             </div>
         )
     }
