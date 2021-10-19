@@ -1,8 +1,47 @@
 import React, { Component } from 'react';
 
 import axios from 'axios';
+import Modal from 'react-modal';
 
 export default class ViewTodoComponent extends Component {
+    
+    taskObj = {
+        _id: '',
+        task: ''
+    }
+
+    state = {
+        modalIsOpen: false,
+        secondModalIsOpen: false
+    };
+
+    openModal = (data) => {
+        this.setState({
+            modalIsOpen: true
+        });
+
+        this.setTodoVal(data);
+    }
+
+    setTodoVal = (data) => {
+        this.taskObj = {
+            _id: data._id,
+            task: data.task
+        }
+    }
+
+    closeModal = () => {
+        this.setState({ modalIsOpen: false });
+    }
+
+    openSecondModal = () => {
+        this.setState({ secondModalIsOpen: true} );
+    }
+
+    closeSecondModal = () => {
+        this.setState({ secondModalIsOpen: false });
+    }
+    
     constructor(props) {
         super(props)
 
